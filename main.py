@@ -16,15 +16,17 @@ for filename in os.listdir(videosFolder):
     duration: float = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / int(video.get(cv2.CAP_PROP_FPS))
 
     totalDuration = totalDuration + duration
-    totalDurationHours = totalDuration//3600
-    totalDuration = totalDuration%3600
-    totalDurationMinutes = totalDuration//60
-    totalDurationSeconds = float(totalDuration)%60
 
     nOfVideos = nOfVideos + 1
     print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
 
 print()
+
+
+totalDurationHours = totalDuration//3600
+totalDuration = totalDuration%3600
+totalDurationMinutes = totalDuration//60
+totalDurationSeconds = float(totalDuration)%60
 
 if totalDurationHours > 0:
     print('Total duration: ' + str('{0:.0f}'.format(totalDurationHours)) + ' hours, ' + str(totalDurationMinutes) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
