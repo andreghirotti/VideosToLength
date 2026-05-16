@@ -5,8 +5,6 @@ videosFolder = input("Enter the path of the folder you would like to search: ")
 print()
 print('Retrieving videos from: ' + videosFolder)
 print()
-print(os.listdir(videosFolder))
-print()
 print()
 
 totalDuration: float = 0
