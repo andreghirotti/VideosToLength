@@ -2,7 +2,7 @@ import os
 import cv2
 
 videosFolder = input("Enter the path of the folder you would like to search: ")
-print(videosFolder)
+print('Retrieving videos from: ' + videosFolder)
 print()
 
 
@@ -27,7 +27,7 @@ for filename in os.listdir(videosFolder):
     totalDurationSeconds = float(totalDuration)%60
 
 
-    print('Video ' + filename + '| duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
+    print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
 
 if totalDurationHours > 0:
     print('Total duration: ' + str('{0:.0f}'.format(totalDurationHours)) + ' hours, ' + str(totalDurationMinutes) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
