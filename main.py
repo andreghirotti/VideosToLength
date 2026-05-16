@@ -10,6 +10,7 @@ print()
 print()
 
 totalDuration: float = 0
+nOfVideos: int = 0
 
 for filename in os.listdir(videosFolder):
     video = cv2.VideoCapture(os.path.join(videosFolder, filename))
@@ -22,7 +23,7 @@ for filename in os.listdir(videosFolder):
     totalDurationMinutes = totalDuration//60
     totalDurationSeconds = float(totalDuration)%60
 
-
+    nOfVideos = nOfVideos + 1
     print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
 
 print()
@@ -33,5 +34,6 @@ elif totalDurationMinutes > 0:
     print('Total duration: ' + str('{0:.0f}'.format(totalDurationMinutes)) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
 else:
     print('Total duration: ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+print('Number of videos: ' + str(nOfVideos))
 print()
 input("Press enter to close program")
