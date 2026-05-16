@@ -33,3 +33,5 @@ elif totalDurationMinutes > 0:
     print('Total duration: ' + str('{0:.0f}'.format(totalDurationMinutes)) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
 else:
     print('Total duration: ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+print()
+input("Press enter to close program")
