@@ -23,20 +23,22 @@ for filename in os.listdir(videosFolder):
         nOfVideos = nOfVideos + 1
         print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
 
-print()
-
-
-totalDurationHours = totalDuration//3600
-totalDuration = totalDuration%3600
-totalDurationMinutes = totalDuration//60
-totalDurationSeconds = float(totalDuration)%60
-
-if totalDurationHours > 0:
-    print('Total duration: ' + str('{0:.0f}'.format(totalDurationHours)) + ' hours, ' + str(totalDurationMinutes) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
-elif totalDurationMinutes > 0:
-    print('Total duration: ' + str('{0:.0f}'.format(totalDurationMinutes)) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+if nOfVideos == 0: print('No videos found in folder')
 else:
-    print('Total duration: ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
-print('Number of videos: ' + str(nOfVideos))
-print()
-input("Press enter to close program")
+    print()
+
+
+    totalDurationHours = totalDuration//3600
+    totalDuration = totalDuration%3600
+    totalDurationMinutes = totalDuration//60
+    totalDurationSeconds = float(totalDuration)%60
+
+    if totalDurationHours > 0:
+        print('Total duration: ' + str('{0:.0f}'.format(totalDurationHours)) + ' hours, ' + str(totalDurationMinutes) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+    elif totalDurationMinutes > 0:
+        print('Total duration: ' + str('{0:.0f}'.format(totalDurationMinutes)) + ' minutes, ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+    else:
+        print('Total duration: ' + str('{0:.2f}'.format(totalDurationSeconds)) + ' seconds')
+    print('Number of videos: ' + str(nOfVideos))
+    print()
+    input("Press enter to close program")
