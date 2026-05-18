@@ -11,14 +11,17 @@ totalDuration: float = 0
 nOfVideos: int = 0
 
 for filename in os.listdir(videosFolder):
-    video = cv2.VideoCapture(os.path.join(videosFolder, filename))
 
-    duration: float = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / int(video.get(cv2.CAP_PROP_FPS))
+    if filename.endswith('.mp4') or filename.endswith('.mkv') or filename.endswith('.avi') or filename.endswith('.mov') or filename.endswith('.wmv'):
+        totalDuration = totalDuration + 1
+        video = cv2.VideoCapture(os.path.join(videosFolder, filename))
 
-    totalDuration = totalDuration + duration
+        duration: float = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / int(video.get(cv2.CAP_PROP_FPS))
 
-    nOfVideos = nOfVideos + 1
-    print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
+        totalDuration = totalDuration + duration
+
+        nOfVideos = nOfVideos + 1
+        print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds')
 
 print()
 
