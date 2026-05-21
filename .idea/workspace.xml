@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49474a71-cb6a-4218-ad04-5b4fe56f4074" name="Changes" comment="Removed Unnecessary code calculation (totalDuration) -&gt; outside for loop">
+    <list default="true" id="49474a71-cb6a-4218-ad04-5b4fe56f4074" name="Changes" comment="Added message if folder does not contain any videos.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
