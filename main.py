@@ -12,18 +12,17 @@ totalSize: float = 0
 nOfVideos: int = 0
 
 for filename in os.listdir(videosFolder):
-
-    if filename.endswith('.mp4') or filename.endswith('.mkv') or filename.endswith('.avi') or filename.endswith('.mov') or filename.endswith('.wmv'):
-        totalDuration = totalDuration + 1
+    filenameLowerCase = filename.lower()
+    if filenameLowerCase.endswith('.mp4') or filenameLowerCase.endswith('.mkv') or filenameLowerCase.endswith('.avi') or filenameLowerCase.endswith('.mov') or filenameLowerCase.endswith('.wmv'):
         video = cv2.VideoCapture(os.path.join(videosFolder, filename))
         fileSize = os.path.getsize(os.path.join(videosFolder, filename))
 
-        duration: float = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / int(video.get(cv2.CAP_PROP_FPS))
+        duration: float = int(video.get(cv2.CAP_PROP_FRAME_COUNT)) / int(video.get(cv2.CAP_PROP_FPS)) if video.get(cv2.CAP_PROP_FPS) >= 1 else 0
 
-        totalDuration = totalDuration + duration
+        totalDuration += duration
         totalSize += fileSize
 
-        nOfVideos = nOfVideos + 1
+        nOfVideos += 1
 
         fileSizeStr = ''
         fileSizeTB = float(fileSize / 1024 / 1024 / 1024 / 1024)
@@ -40,6 +39,9 @@ for filename in os.listdir(videosFolder):
         elif fileSizeKb > 0:
             fileSizeStr = str('{0:.2f}'.format(fileSizeKb)) + ' KB'
         print('Video: \'' + filename + '\' | duration: ' + str('{0:.2f}'.format(duration)) + ' seconds ('+fileSizeStr+')')
+    video.release()
+
+
 
 if nOfVideos == 0: print('No videos found in folder')
 else:
